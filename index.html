@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 ÉCO-CHALLENGE (Fonctionnel)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+
+        <div id="start-screen" class="screen active">
+            <h1>🌍 ÉCO-CHALLENGE</h1>
+            <p>Classez les produits selon leur impact écologique !</p>
+
+            <div class="settings">
+                <label for="difficulty-slider">Difficulté : <span id="difficulty-label">🧑 Adulte</span></label>
+                <input type="range" id="difficulty-slider" min="0" max="4" value="1" aria-labelledby="difficulty-label">
+                <div class="difficulty-legend">
+                    <span>👶</span><span>🧑</span><span>👨‍💼</span><span>🧠</span><span>🌟</span>
+                </div>
+
+                <label for="num-products">Nombre de produits à comparer (3-10) :</label>
+                <input type="number" id="num-products" value="5" min="3" max="10">
+
+                <label for="num-players">Nombre de joueurs (1-4) :</label>
+                <input type="number" id="num-players" value="1" min="1" max="4">
+                <div id="player-names-container">
+                    </div>
+
+                <div class="timer-option">
+                    <input type="checkbox" id="timer-checkbox" name="timer-checkbox">
+                    <label for="timer-checkbox">Activer le chronomètre (1 min) ?</label>
+                </div>
+            </div>
+
+            <div class="start-buttons">
+                <button id="start-game-btn">Lancer la partie !</button>
+                <button id="duel-rapide-btn">🚀 Duel Rapide</button>
+                <button id="show-history-btn">📜 Historique</button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <header id="game-info">
+                <div id="player-turn">Tour de : <span id="current-player-name"></span></div>
+                <div id="score-display">Score : <span id="current-score">100</span></div>
+                <div id="timer-display" class="hidden">Temps : <span id="timer-value">--</span></div>
+                <div id="round-info">Manche <span id="current-round">1</span> / <span id="total-rounds">?</span></div>
+            </header>
+
+            <div id="progress-bars">
+                </div>
+
+            <aside id="eco-character">
+                 <img src="img/placeholder_eco_char.png" alt="Mascotte Écolo" width="80">
+                 <p id="eco-message">Classez ces produits !</p>
+            </aside>
+
+            <main id="ranking-section">
+                <h2>Classez du moins (<span style="color: green;">🌿</span>) au plus (<span style="color: red;">🏭</span>) impactant :</h2>
+                <p><em>Glissez-déposez les produits de la zone supérieure vers la zone inférieure dans le bon ordre.</em></p>
+                <div id="products-to-rank" class="product-container source-zone" aria-label="Produits à classer">
+                    </div>
+                <div id="ranking-area" class="product-container ranking-zone" aria-label="Zone de classement">
+                    <div class="ranking-placeholder">Déposez les produits ici (le moins impactant à gauche)</div>
+                    </div>
+            </main>
+
+            <footer id="game-controls">
+                <button id="submit-ranking-btn">Valider le classement</button>
+                 <div id="feedback-area" role="alert"></div>
+                 <div id="explanation-area" class="hidden"></div>
+                 <button id="next-step-btn" class="hidden">Suivant ▶</button>
+            </footer>
+
+            <div id="mini-quiz-area" class="hidden">
+                <h3>Mini-Quiz Bonus !</h3>
+                <p id="quiz-question"></p>
+                <div id="quiz-options"></div>
+                <p id="quiz-feedback" role="alert"></p>
+            </div>
+        </div>
+
+        <div id="game-over-screen" class="screen">
+            <h2>Partie Terminée !</h2>
+            <div id="final-scores">
+                </div>
+            <div id="eco-summary">
+                <h3>Le Saviez-vous ?</h3>
+                <p id="danger-description">Info écologique...</p>
+            </div>
+             <div id="ranking-review" class="hidden">
+                <h3>Revoir le dernier classement :</h3>
+                <p>Votre classement :</p>
+                <div id="review-player-ranking"></div>
+                <p>Classement correct :</p>
+                <div id="review-correct-ranking"></div>
+                <button id="hide-review-btn">Masquer la correction</button>
+            </div>
+            <div class="game-over-buttons">
+                <button id="show-review-btn" class="hidden">Revoir le dernier classement</button>
+                <button id="restart-game-btn">Rejouer</button>
+                <button id="back-to-menu-btn">Menu Principal</button>
+            </div>
+        </div>
+
+        <div id="history-screen" class="screen">
+            <h2>Historique des Parties</h2>
+            <div id="history-list">
+                </div>
+             <h3>Meilleurs Scores (Top 10)</h3>
+             <div id="high-scores">
+                 </div>
+             <button id="clear-history-btn">Effacer l'historique</button>
+             <button id="back-to-menu-from-history-btn">Retour au Menu</button>
+        </div>
+
+    </div><script src="script.js"></script>
+</body>
+</html>
